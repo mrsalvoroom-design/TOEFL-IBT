@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SALVO GROUP TOEFL IBT PRACTICE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap');
+        
+        :root {
+            --primary-blue: #0066cc;
+            --dark-blue: #001a33;
+            --navy: #000d1a;
+            --crimson: #dc143c;
+            --bright-red: #ff1a1a;
+            --electric-blue: #00ccff;
+            --neon-blue: #0080ff;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #000d1a 0%, #001a33 50%, #002b52 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .title-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .glass-panel {
+            background: rgba(0, 26, 51, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 128, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .neon-border {
+            box-shadow: 0 0 20px rgba(0, 128, 255, 0.3), inset 0 0 20px rgba(0, 128, 255, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #0066cc 0%, #0080ff 100%);
+            border: 1px solid rgba(0, 204, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 128, 255, 0.4);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #dc143c 0%, #ff1a1a 100%);
+            border: 1px solid rgba(255, 26, 26, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(220, 20, 60, 0.4);
+        }
+        
+        .btn-record {
+            background: linear-gradient(135deg, #dc143c 0%, #ff1a1a 100%);
+            animation: pulse-red 2s infinite;
+        }
+        
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(220, 20, 60, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(220, 20, 60, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 20, 60, 0); }
+        }
+        
+        .section-card {
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.1) 0%, rgba(0, 128, 255, 0.1) 100%);
+            border: 1px solid rgba(0, 128, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 128, 255, 0.2);
+            border-color: rgba(0, 204, 255, 0.4);
+        }
+        
+        .timer {
+            font-family: 'Orbitron', monospace;
+            color: #00ccff;
+            text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, #0066cc 0%, #00ccff 100%);
+        }
+        
+        .audio-wave {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            height: 40px;
+        }
+        
+        .wave-bar {
+            width: 4px;
+            background: linear-gradient(to top, #dc143c, #00ccff);
+            border-radius: 2px;
+            animation: wave 1s ease-in-out infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% { height: 20%; }
+            50% { height: 100%; }
+        }
+        
+        .hidden-section {
+            display: none;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .option-btn {
+            background: rgba(0, 102, 204, 0.2);
+            border: 1px solid rgba(0, 128, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .option-btn:hover {
+            background: rgba(0, 128, 255, 0.3);
+            border-color: #00ccff;
+            transform: translateX(5px);
+        }
+        
+        .option-btn.selected {
+            background: linear-gradient(135deg, #0066cc 0%, #0080ff 100%);
+            border-color: #00ccff;
+        }
+        
+        .option-btn.correct {
+            background: linear-gradient(135deg, #00cc66 0%, #00ff88 100%);
+            border-color: #00ff88;
+        }
+        
+        .option-btn.wrong {
+            background: linear-gradient(135deg, #dc143c 0%, #ff1a1a 100%);
+            border-color: #ff1a1a;
+        }
+        
+        .reading-highlight {
+            background: rgba(255, 255, 0, 0.2);
+            padding: 2px 4px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .reading-highlight.selected {
+            background: rgba(0, 204, 255, 0.4);
+        }
+        
+        .tab-active {
+            color: #00ccff;
+            border-bottom: 2px solid #dc143c;
+        }
+        
+        .score-circle {
+            background: conic-gradient(#00ccff calc(var(--score) * 1%), transparent 0);
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center p-4">
+
+    <!-- Main Container -->
+    <div class="w-full max-w-4xl bg-gradient-to-b from-[#001a33] to-[#000d1a] rounded-3xl overflow-hidden shadow-2xl neon-border relative min-h-[90vh]">
+        
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-[#000d1a] via-[#001a33] to-[#000d1a] p-6 text-center border-b border-[#0066cc]/30 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%230066cc" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+            <h1 class="title-font text-2xl md:text-3xl font-bold text-white tracking-wider relative z-10">
+                <span class="text-[#dc143c]">SALVO</span> <span class="text-[#00ccff]">GROUP</span>
+            </h1>
+            <p class="text-[#0080ff] text-sm tracking-[0.3em] uppercase mt-2 relative z-10">TOEFL IBT Practice</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="flex justify-around p-3 bg-[#000d1a]/80 border-b border-[#0066cc]/20 text-xs md:text-sm">
+            <button onclick="showSection('menu')" class="nav-btn tab-active px-4 py-2 transition hover:text-[#00ccff]"><i class="fas fa-home mr-2"></i>Dashboard</button>
+            <button onclick="showSection('reading')" class="nav-btn text-gray-400 px-4 py-2 transition hover:text-[#00ccff]"><i class="fas fa-book-open mr-2"></i>Reading</button>
+            <button onclick="showSection('listening')" class="nav-btn text-gray-400 px-4 py-2 transition hover:text-[#00ccff]"><i class="fas fa-headphones mr-2"></i>Listening</button>
+            <button onclick="showSection('speaking')" class="nav-btn text-gray-400 px-4 py-2 transition hover:text-[#00ccff]"><i class="fas fa-microphone mr-2"></i>Speaking</button>
+            <button onclick="showSection('writing')" class="nav-btn text-gray-400 px-4 py-2 transition hover:text-[#00ccff]"><i class="fas fa-pen mr-2"></i>Writing</button>
+        </nav>
+
+        <!-- Content Area -->
+        <div class="flex-1 overflow-y-auto p-4 md:p-6 space-y-4" style="max-height: calc(90vh - 140px);">
+
+            <!-- MENU SECTION -->
+            <div id="menu-section" class="section-content fade-in">
+                <div class="text-center mb-8">
+                    <div class="w-28 h-28 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#dc143c] to-[#0066cc] flex items-center justify-center shadow-lg shadow-[#0066cc]/30 relative">
+                        <i class="fas fa-graduation-cap text-5xl text-white"></i>
+                        <div class="absolute inset-0 rounded-full border-2 border-[#00ccff] animate-pulse"></div>
+                    </div>
+                    <h2 class="title-font text-3xl font-bold mb-2 text-white">TOEFL <span class="text-[#dc143c]">iBT</span></h2>
+                    <p class="text-[#0080ff] text-sm">Internet-Based Test Preparation</p>
+                </div>
+
+                <!-- Test Overview -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <div class="section-card p-4 rounded-2xl text-center cursor-pointer" onclick="startTest('reading')">
+                        <div class="text-3xl mb-2 text-[#00ccff]"><i class="fas fa-book-reader"></i></div>
+                        <h3 class="font-bold text-sm">Reading</h3>
+                        <p class="text-xs text-gray-400 mt-1">3-4 Passages<br>54-72 min</p>
+                        <div class="mt-2 text-[#dc143c] font-bold text-lg">30 Qs</div>
+                    </div>
+                    <div class="section-card p-4 rounded-2xl text-center cursor-pointer" onclick="startTest('listening')">
+                        <div class="text-3xl mb-2 text-[#dc143c]"><i class="fas fa-headphones-alt"></i></div>
+                        <h3 class="font-bold text-sm">Listening</h3>
+                        <p class="text-xs text-gray-400 mt-1">3-4 Lectures<br>41-57 min</p>
+                        <div class="mt-2 text-[#00ccff] font-bold text-lg">28 Qs</div>
+                    </div>
+                    <div class="section-card p-4 rounded-2xl text-center cursor-pointer" onclick="startTest('speaking')">
+                        <div class="text-3xl mb-2 text-[#00ccff]"><i class="fas fa-microphone-alt"></i></div>
+                        <h3 class="font-bold text-sm">Speaking</h3>
+                        <p class="text-xs text-gray-400 mt-1">4 Tasks<br>17 min</p>
+                        <div class="mt-2 text-[#dc143c] font-bold text-lg">4 Tasks</div>
+                    </div>
+                    <div class="section-card p-4 rounded-2xl text-center cursor-pointer" onclick="startTest('writing')">
+                        <div class="text-3xl mb-2 text-[#dc143c]"><i class="fas fa-keyboard"></i></div>
+                        <h3 class="font-bold text-sm">Writing</h3>
+                        <p class="text-xs text-gray-400 mt-1">2 Tasks<br>50 min</p>
+                        <div class="mt-2 text-[#00ccff] font-bold text-lg">2 Essays</div>
+                    </div>
+                </div>
+
+                <!-- Progress Overview -->
+                <div class="glass-panel rounded-2xl p-6">
+                    <h3 class="font-bold text-[#00ccff] mb-4 flex items-center"><i class="fas fa-chart-line mr-2"></i>Your Progress</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Reading</span>
+                                <span class="text-[#00ccff]" id="progress-reading">0%</span>
+                            </div>
+                            <div class="w-full bg-[#001a33] rounded-full h-2 border border-[#0066cc]/30">
+                                <div id="bar-reading" class="progress-bar h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Listening</span>
+                                <span class="text-[#dc143c]" id="progress-listening">0%</span>
+                            </div>
+                            <div class="w-full bg-[#001a33] rounded-full h-2 border border-[#0066cc]/30">
+                                <div id="bar-listening" class="progress-bar h-2 rounded-full transition-all duration-500" style="width: 0%; background: linear-gradient(90deg, #dc143c 0%, #ff1a1a 100%)"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Speaking</span>
+                                <span class="text-[#00ccff]" id="progress-speaking">0%</span>
+                            </div>
+                            <div class="w-full bg-[#001a33] rounded-full h-2 border border-[#0066cc]/30">
+                                <div id="bar-speaking" class="progress-bar h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Writing</span>
+                                <span class="text-[#dc143c]" id="progress-writing">0%</span>
+                            </div>
+                            <div class="w-full bg-[#001a33] rounded-full h-2 border border-[#0066cc]/30">
+                                <div id="bar-writing" class="progress-bar h-2 rounded-full transition-all duration-500" style="width: 0%; background: linear-gradient(90deg, #dc143c 0%, #ff1a1a 100%)"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 pt-4 border-t border-[#0066cc]/20">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-gray-400">Overall Score</span>
+                            <span class="text-2xl font-bold text-white" id="total-score">0/120</span>
+                        </div>
+                        <div class="w-full bg-[#001a33] rounded-full h-3 border border-[#0066cc]/30">
+                            <div id="bar-total" class="h-3 rounded-full transition-all duration-700" style="width: 0%; background: linear-gradient(90deg, #dc143c 0%, #0066cc 50%, #00ccff 100%)"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startFullTest()" class="w-full mt-6 btn-danger py-4 rounded-2xl font-bold text-lg shadow-lg shadow-[#dc143c]/30 flex items-center justify-center gap-3">
+                    <i class="fas fa-play-circle text-2xl"></i>
+                    Start Full Practice Test
+                </button>
+            </div>
+
+            <!-- READING SECTION -->
+            <div id="reading-section" class="section-content hidden-section">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h2 class="title-font text-2xl font-bold text-[#00ccff]">Reading Section</h2>
+                        <p class="text-xs text-gray-400">Time: 54-72 minutes • 3-4 Passages</p>
+                    </div>
+                    <div class="timer text-2xl" id="reading-timer">54:00</div>
+                </div>
+
+                <!-- Passage 1 -->
+                <div class="glass-panel rounded-2xl p-6 mb-6" id="reading-passage-1">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs bg-[#0066cc]/20 text-[#00ccff] px-3 py-1 rounded-full border border-[#0066cc]/30">Passage 1 of 3</span>
+                        <span class="text-xs text-gray-400">Questions 1-10</span>
+                    </div>
+                    
+                    <div class="bg-[#000d1a]/50 p-4 rounded-lg mb-6 max-h-64 overflow-y-auto border border-[#0066cc]/20 text-sm leading-relaxed">
+                        <h3 class="font-bold text-lg mb-3 text-[#00ccff]">The Origins of Agriculture</h3>
+                        <p class="mb-3">
+                            The transition from hunting and gathering to agriculture represents one of the most significant developments in human history. This transformation, often called the Neolithic Revolution, occurred independently in several parts of the world beginning around 10,000 BCE. In the Fertile Crescent of the Middle East, wild wheat and barley were among the first crops to be domesticated. Ancient farmers selected plants with desirable traits, such as larger seeds and non-shattering seed heads, gradually transforming wild grasses into the cultivated cereals we know today.
+                        </p>
+                        <p class="mb-3">
+                            The adoption of agriculture had profound implications for human societies. Settled farming communities could support larger populations than nomadic groups, leading to the growth of villages and eventually cities. However, agricultural life also brought new challenges. Farmers were vulnerable to crop failures caused by drought, pests, or disease. The concentration of people in permanent settlements facilitated the spread of infectious diseases. Despite these challenges, agriculture provided a more reliable food supply that allowed for the development of specialized crafts, social hierarchies, and complex political organizations.
+                        </p>
+                        <p>
+                            Recent archaeological evidence suggests that the transition to agriculture was not as abrupt as previously thought. In some regions, people practiced intensive hunting and gathering for thousands of years before fully committing to farming. This gradual shift indicates that early agriculturalists were making rational decisions based on their environmental conditions and available technologies, rather than simply following an inevitable path of progress.
+                        </p>
+                    </div>
+
+                    <!-- Question 1 -->
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#0066cc]/20">
+                        <p class="font-semibold mb-3 text-[#00ccff]"><span class="text-[#dc143c] mr-2">1.</span>According to paragraph 1, which of the following was among the first crops to be domesticated in the Fertile Crescent?</p>
+                        <div class="space-y-2">
+                            <button onclick="selectReadingAnswer(this, true)" class="option-btn w-full p-3 rounded-lg text-left text-sm">A. Wheat and barley</button>
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">B. Rice and corn</button>
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">C. Potatoes and tomatoes</button>
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">D. Oats and rye</button>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#0066cc]/20">
+                        <p class="font-semibold mb-3 text-[#00ccff]"><span class="text-[#dc143c] mr-2">2.</span>The word <span class="italic text-[#00ccff]">"profound"</span> in paragraph 2 is closest in meaning to:</p>
+                        <div class="space-y-2">
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">A. surprising</button>
+                            <button onclick="selectReadingAnswer(this, true)" class="option-btn w-full p-3 rounded-lg text-left text-sm">B. far-reaching</button>
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">C. disappointing</button>
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">D. temporary</button>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#0066cc]/20">
+                        <p class="font-semibold mb-3 text-[#00ccff]"><span class="text-[#dc143c] mr-2">3.</span>According to paragraph 2, what was one disadvantage of agricultural life compared to hunting and gathering?</p>
+                        <div class="space-y-2">
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">A. It required more physical labor</button>
+                            <button onclick="selectReadingAnswer(this, true)" class="option-btn w-full p-3 rounded-lg text-left text-sm">B. It made people more vulnerable to crop failures and diseases</button>
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">C. It prevented the development of crafts</button>
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">D. It led to smaller population sizes</button>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 - Insert Text -->
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#0066cc]/20">
+                        <p class="font-semibold mb-3 text-[#00ccff]"><span class="text-[#dc143c] mr-2">4.</span>Look at the four squares [■] that indicate where the following sentence could be added to paragraph 3. Where would the sentence best fit?</p>
+                        <p class="italic text-gray-300 mb-3 bg-[#000d1a] p-3 rounded border-l-2 border-[#dc143c]">"This suggests that the shift to farming was a complex process that varied across different regions."</p>
+                        <div class="text-sm leading-loose bg-[#000d1a]/30 p-4 rounded">
+                            Recent archaeological evidence suggests that the transition to agriculture was not as abrupt as previously thought. [■] In some regions, people practiced intensive hunting and gathering for thousands of years before fully committing to farming. [■] This gradual shift indicates that early agriculturalists were making rational decisions based on their environmental conditions and available technologies, [■] rather than simply following an inevitable path of progress. [■]
+                        </div>
+                        <div class="grid grid-cols-4 gap-2 mt-3">
+                            <button onclick="selectInsertText(this, false)" class="option-btn p-2 rounded text-center text-sm">A. First square</button>
+                            <button onclick="selectInsertText(this, true)" class="option-btn p-2 rounded text-center text-sm">B. Second square</button>
+                            <button onclick="selectInsertText(this, false)" class="option-btn p-2 rounded text-center text-sm">C. Third square</button>
+                            <button onclick="selectInsertText(this, false)" class="option-btn p-2 rounded text-center text-sm">D. Fourth square</button>
+                        </div>
+                    </div>
+
+                    <!-- Question 5 - Prose Summary -->
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#0066cc]/20">
+                        <p class="font-semibold mb-3 text-[#00ccff]"><span class="text-[#dc143c] mr-2">5.</span>Directions: An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage.</p>
+                        <p class="text-sm mb-3 bg-[#000d1a] p-3 rounded border border-[#0066cc]/30">The Neolithic Revolution marked a crucial turning point in human history when people began to domesticate plants and adopt settled agricultural lifestyles.</p>
+                        <div class="space-y-2">
+                            <label class="flex items-start p-3 bg-[#000d1a]/50 rounded-lg cursor-pointer hover:bg-[#0066cc]/10 transition">
+                                <input type="checkbox" class="mt-1 mr-3 accent-[#00ccff] summary-check" value="correct">
+                                <span class="text-sm">A. Agriculture developed independently in multiple regions, with wheat and barley among the first domesticated crops in the Middle East.</span>
+                            </label>
+                            <label class="flex items-start p-3 bg-[#000d1a]/50 rounded-lg cursor-pointer hover:bg-[#0066cc]/10 transition">
+                                <input type="checkbox" class="mt-1 mr-3 accent-[#00ccff] summary-check">
+                                <span class="text-sm">B. The Fertile Crescent is the only region where agriculture developed independently.</span>
+                            </label>
+                            <label class="flex items-start p-3 bg-[#000d1a]/50 rounded-lg cursor-pointer hover:bg-[#0066cc]/10 transition">
+                                <input type="checkbox" class="mt-1 mr-3 accent-[#00ccff] summary-check" value="correct">
+                                <span class="text-sm">C. While agriculture enabled population growth and social complexity, it also created new vulnerabilities to environmental and health challenges.</span>
+                            </label>
+                            <label class="flex items-start p-3 bg-[#000d1a]/50 rounded-lg cursor-pointer hover:bg-[#0066cc]/10 transition">
+                                <input type="checkbox" class="mt-1 mr-3 accent-[#00ccff] summary-check">
+                                <span class="text-sm">D. Hunting and gathering was universally abandoned once agriculture was discovered.</span>
+                            </label>
+                            <label class="flex items-start p-3 bg-[#000d1a]/50 rounded-lg cursor-pointer hover:bg-[#0066cc]/10 transition">
+                                <input type="checkbox" class="mt-1 mr-3 accent-[#00ccff] summary-check" value="correct">
+                                <span class="text-sm">E. Recent evidence indicates that the transition to agriculture was gradual and varied according to local conditions.</span>
+                            </label>
+                            <label class="flex items-start p-3 bg-[#000d1a]/50 rounded-lg cursor-pointer hover:bg-[#0066cc]/10 transition">
+                                <input type="checkbox" class="mt-1 mr-3 accent-[#00ccff] summary-check">
+                                <span class="text-sm">F. Agriculture was invented by a single genius who taught others to farm.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between mt-6">
+                        <button onclick="prevReading()" class="px-6 py-2 bg-[#001a33] border border-[#0066cc]/30 rounded-lg hover:bg-[#0066cc]/20 transition text-sm">Previous</button>
+                        <button onclick="nextReading()" class="px-6 py-2 btn-primary rounded-lg font-bold text-sm">Next Passage</button>
+                    </div>
+                </div>
+
+                <!-- Passage 2 (Hidden initially) -->
+                <div class="glass-panel rounded-2xl p-6 mb-6 hidden" id="reading-passage-2">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs bg-[#0066cc]/20 text-[#00ccff] px-3 py-1 rounded-full border border-[#0066cc]/30">Passage 2 of 3</span>
+                        <span class="text-xs text-gray-400">Questions 11-20</span>
+                    </div>
+                    
+                    <div class="bg-[#000d1a]/50 p-4 rounded-lg mb-6 max-h-64 overflow-y-auto border border-[#0066cc]/20 text-sm leading-relaxed">
+                        <h3 class="font-bold text-lg mb-3 text-[#00ccff]">The Psychology of Color</h3>
+                        <p class="mb-3">
+                            Color psychology is the study of how colors affect perceptions and behaviors. In marketing and branding, color is often used to evoke specific emotional responses from consumers. Red, for example, is frequently associated with excitement, passion, and urgency. This explains why red is commonly used in clearance sales and fast-food restaurants—it creates a sense of urgency and stimulates appetite. Blue, conversely, is linked to trust, security, and calmness. Financial institutions and technology companies often use blue in their logos to convey reliability and professionalism.
+                        </p>
+                        <p class="mb-3">
+                            However, the psychological effects of color are not universal. Cultural differences play a significant role in color interpretation. While white represents purity and weddings in Western cultures, it is associated with mourning and funerals in many Eastern cultures. Similarly, green symbolizes nature and environmental consciousness in Western countries but can represent infidelity in China. These cultural variations mean that global brands must carefully consider color choices when entering new markets.
+                        </p>
+                        <p>
+                            Recent research has also challenged some long-held assumptions about color psychology. A comprehensive study published in 2020 found that the effects of color on mood and behavior are often weaker and more context-dependent than previously believed. The researchers concluded that individual differences, such as personal experiences and preferences, may be more influential than color alone in determining emotional responses. This suggests that while color can be a useful tool in design and marketing, it should not be relied upon as a universal trigger for specific behaviors.
+                        </p>
+                    </div>
+
+                    <!-- Questions 11-15 -->
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#0066cc]/20">
+                        <p class="font-semibold mb-3 text-[#00ccff]"><span class="text-[#dc143c] mr-2">11.</span>According to paragraph 1, why do fast-food restaurants often use red in their branding?</p>
+                        <div class="space-y-2">
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">A. Because it is the cheapest color to use</button>
+                            <button onclick="selectReadingAnswer(this, true)" class="option-btn w-full p-3 rounded-lg text-left text-sm">B. Because it creates urgency and stimulates appetite</button>
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">C. Because it represents health and nutrition</button>
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">D. Because it is the most popular color worldwide</button>
+                        </div>
+                    </div>
+
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#0066cc]/20">
+                        <p class="font-semibold mb-3 text-[#00ccff]"><span class="text-[#dc143c] mr-2">12.</span>The word <span class="italic text-[#00ccff]">"conversely"</span> in paragraph 1 is closest in meaning to:</p>
+                        <div class="space-y-2">
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">A. similarly</button>
+                            <button onclick="selectReadingAnswer(this, true)" class="option-btn w-full p-3 rounded-lg text-left text-sm">B. on the other hand</button>
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">C. therefore</button>
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">D. for example</button>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between mt-6">
+                        <button onclick="prevReading()" class="px-6 py-2 bg-[#001a33] border border-[#0066cc]/30 rounded-lg hover:bg-[#0066cc]/20 transition text-sm">Previous</button>
+                        <button onclick="nextReading()" class="px-6 py-2 btn-primary rounded-lg font-bold text-sm">Next Passage</button>
+                    </div>
+                </div>
+
+                <!-- Passage 3 (Hidden initially) -->
+                <div class="glass-panel rounded-2xl p-6 mb-6 hidden" id="reading-passage-3">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs bg-[#0066cc]/20 text-[#00ccff] px-3 py-1 rounded-full border border-[#0066cc]/30">Passage 3 of 3</span>
+                        <span class="text-xs text-gray-400">Questions 21-30</span>
+                    </div>
+                    
+                    <div class="bg-[#000d1a]/50 p-4 rounded-lg mb-6 max-h-64 overflow-y-auto border border-[#0066cc]/20 text-sm leading-relaxed">
+                        <h3 class="font-bold text-lg mb-3 text-[#00ccff]">The Discovery of Penicillin</h3>
+                        <p class="mb-3">
+                            The discovery of penicillin by Alexander Fleming in 1928 is one of the most famous stories in medical history. Returning to his laboratory after a vacation, Fleming noticed that mold growing on a petri dish of Staphylococcus bacteria had killed the surrounding bacterial colonies. This chance observation led to the development of the first antibiotic, which would go on to save millions of lives from previously fatal bacterial infections.
+                        </p>
+                        <p class="mb-3">
+                            However, the path from discovery to practical medicine was not straightforward. Fleming struggled to produce enough pure penicillin to test its effectiveness in animals or humans. It was not until 1940 that a team of researchers at Oxford University, led by Howard Florey and Ernst Chain, developed methods to purify and mass-produce the drug. Their work was crucial during World War II, when penicillin was used to treat wounded soldiers and significantly reduced deaths from infected wounds.
+                        </p>
+                        <p>
+                            The success of penicillin sparked a revolution in pharmaceutical research. Scientists began systematically searching for other microorganisms that could produce antibiotic compounds. This led to the discovery of streptomycin, tetracycline, and numerous other antibiotics that have transformed modern medicine. However, the widespread use of antibiotics has also led to the emergence of resistant bacteria, creating new challenges for public health. Today, researchers are exploring new approaches, including bacteriophage therapy and CRISPR-based treatments, to combat these resistant strains.
+                        </p>
+                    </div>
+
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#0066cc]/20">
+                        <p class="font-semibold mb-3 text-[#00ccff]"><span class="text-[#dc143c] mr-2">21.</span>According to the passage, what was the initial challenge that Fleming faced after discovering penicillin?</p>
+                        <div class="space-y-2">
+                            <button onclick="selectReadingAnswer(this, true)" class="option-btn w-full p-3 rounded-lg text-left text-sm">A. He could not produce enough pure penicillin for testing</button>
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">B. He did not understand how penicillin worked</button>
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">C. Other scientists did not believe his discovery</button>
+                            <button onclick="selectReadingAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">D. The mold was difficult to grow in laboratory conditions</button>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between mt-6">
+                        <button onclick="prevReading()" class="px-6 py-2 bg-[#001a33] border border-[#0066cc]/30 rounded-lg hover:bg-[#0066cc]/20 transition text-sm">Previous</button>
+                        <button onclick="finishReading()" class="px-6 py-2 btn-danger rounded-lg font-bold text-sm">Finish Section</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LISTENING SECTION -->
+            <div id="listening-section" class="section-content hidden-section">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h2 class="title-font text-2xl font-bold text-[#dc143c]">Listening Section</h2>
+                        <p class="text-xs text-gray-400">Time: 41-57 minutes • 3-4 Lectures & 2-3 Conversations</p>
+                    </div>
+                    <div class="timer text-2xl" id="listening-timer">41:00</div>
+                </div>
+
+                <!-- Conversation 1 -->
+                <div class="glass-panel rounded-2xl p-6 mb-6" id="listening-conv-1">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs bg-[#dc143c]/20 text-[#ff1a1a] px-3 py-1 rounded-full border border-[#dc143c]/30">Conversation 1 of 2</span>
+                        <span class="text-xs text-gray-400">Questions 1-5</span>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-[#dc143c]/20 to-[#0066cc]/20 p-6 rounded-xl mb-6 border border-[#dc143c]/30 text-center">
+                        <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-[#dc143c]/20 flex items-center justify-center border-2 border-[#dc143c]">
+                            <i class="fas fa-headphones text-3xl text-[#ff1a1a]"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-white">Office Hours Conversation</h3>
+                        <p class="text-sm text-gray-300 mb-4">A student talks to her professor about a research paper</p>
+                        <button onclick="playListeningAudio('conv1')" id="btn-conv1" class="btn-danger px-8 py-3 rounded-full font-bold flex items-center justify-center gap-2 mx-auto">
+                            <i class="fas fa-play" id="icon-conv1"></i>
+                            <span id="text-conv1">Play Conversation</span>
+                        </button>
+                        <div class="audio-wave hidden mt-4" id="wave-conv1">
+                            <div class="wave-bar" style="animation-delay: 0s"></div>
+                            <div class="wave-bar" style="animation-delay: 0.1s"></div>
+                            <div class="wave-bar" style="animation-delay: 0.2s"></div>
+                            <div class="wave-bar" style="animation-delay: 0.3s"></div>
+                            <div class="wave-bar" style="animation-delay: 0.4s"></div>
+                        </div>
+                    </div>
+
+                    <!-- Conversation 1 Questions -->
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#dc143c]/20">
+                        <p class="font-semibold mb-3 text-[#ff1a1a]"><span class="text-[#00ccff] mr-2">1.</span>Why does the student go to see the professor?</p>
+                        <div class="space-y-2">
+                            <button onclick="selectListeningAnswer(this, true)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">A. To ask for an extension on her research paper</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">B. To complain about her grade on the last assignment</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">C. To discuss changing her major</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">D. To request a letter of recommendation</button>
+                        </div>
+                    </div>
+
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#dc143c]/20">
+                        <p class="font-semibold mb-3 text-[#ff1a1a]"><span class="text-[#00ccff] mr-2">2.</span>What does the professor imply about the student's topic?</p>
+                        <div class="space-y-2">
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">A. It is too broad and needs to be narrowed down</button>
+                            <button onclick="selectListeningAnswer(this, true)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">B. It is original and has not been extensively researched</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">C. It is not appropriate for the course</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">D. It is too similar to another student's paper</button>
+                        </div>
+                    </div>
+
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#dc143c]/20">
+                        <p class="font-semibold mb-3 text-[#ff1a1a]"><span class="text-[#00ccff] mr-2">3.</span>What does the professor suggest the student do?</p>
+                        <div class="space-y-2">
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">A. Start over with a completely new topic</button>
+                            <button onclick="selectListeningAnswer(this, true)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">B. Visit the university archives to find primary sources</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">C. Work with a different professor</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">D. Drop the course and take it next semester</button>
+                        </div>
+                    </div>
+
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#dc143c]/20">
+                        <p class="font-semibold mb-3 text-[#ff1a1a]"><span class="text-[#00ccff] mr-2">4.</span>Listen again to part of the conversation. Why does the professor say this:</p>
+                        <div class="bg-[#000d1a] p-3 rounded mb-3 border-l-2 border-[#00ccff] italic text-sm">
+                            "Well, that's certainly an ambitious topic for an undergraduate paper."
+                        </div>
+                        <div class="space-y-2">
+                            <button onclick="selectListeningAnswer(this, true)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">A. To suggest the topic might be too difficult</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">B. To praise the student's ambition</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">C. To indicate he is impressed by the choice</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">D. To show he is annoyed by the request</button>
+                        </div>
+                    </div>
+
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#dc143c]/20">
+                        <p class="font-semibold mb-3 text-[#ff1a1a]"><span class="text-[#00ccff] mr-2">5.</span>What can be inferred about the student?</p>
+                        <div class="space-y-2">
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">A. She has already completed most of her research</button>
+                            <button onclick="selectListeningAnswer(this, true)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">B. She is interested in environmental history</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">C. She has never written a research paper before</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm border-[#dc143c]/30">D. She wants to change her major to history</button>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between mt-6">
+                        <button onclick="prevListening()" class="px-6 py-2 bg-[#001a33] border border-[#dc143c]/30 rounded-lg hover:bg-[#dc143c]/20 transition text-sm">Previous</button>
+                        <button onclick="nextListening()" class="px-6 py-2 btn-danger rounded-lg font-bold text-sm">Next: Lecture 1</button>
+                    </div>
+                </div>
+
+                <!-- Lecture 1 -->
+                <div class="glass-panel rounded-2xl p-6 mb-6 hidden" id="listening-lecture-1">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs bg-[#0066cc]/20 text-[#00ccff] px-3 py-1 rounded-full border border-[#0066cc]/30">Lecture 1 of 3</span>
+                        <span class="text-xs text-gray-400">Questions 6-11</span>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-[#0066cc]/20 to-[#00ccff]/20 p-6 rounded-xl mb-6 border border-[#0066cc]/30 text-center">
+                        <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-[#0066cc]/20 flex items-center justify-center border-2 border-[#00ccff]">
+                            <i class="fas fa-university text-3xl text-[#00ccff]"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-white">Psychology Lecture</h3>
+                        <p class="text-sm text-gray-300 mb-4">Cognitive Dissonance Theory</p>
+                        <button onclick="playListeningAudio('lecture1')" id="btn-lecture1" class="btn-primary px-8 py-3 rounded-full font-bold flex items-center justify-center gap-2 mx-auto">
+                            <i class="fas fa-play" id="icon-lecture1"></i>
+                            <span id="text-lecture1">Play Lecture</span>
+                        </button>
+                        <div class="audio-wave hidden mt-4" id="wave-lecture1">
+                            <div class="wave-bar" style="animation-delay: 0s"></div>
+                            <div class="wave-bar" style="animation-delay: 0.1s"></div>
+                            <div class="wave-bar" style="animation-delay: 0.2s"></div>
+                            <div class="wave-bar" style="animation-delay: 0.3s"></div>
+                            <div class="wave-bar" style="animation-delay: 0.4s"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#0066cc]/20">
+                        <p class="font-semibold mb-3 text-[#00ccff]"><span class="text-[#dc143c] mr-2">6.</span>What is the main topic of the lecture?</p>
+                        <div class="space-y-2">
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">A. The history of psychology as a science</button>
+                            <button onclick="selectListeningAnswer(this, true)" class="option-btn w-full p-3 rounded-lg text-left text-sm">B. Cognitive dissonance and how people resolve it</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">C. The differences between behaviorism and cognitive psychology</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">D. Experimental methods in social psychology</button>
+                        </div>
+                    </div>
+
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#0066cc]/20">
+                        <p class="font-semibold mb-3 text-[#00ccff]"><span class="text-[#dc143c] mr-2">7.</span>According to the professor, what happens when people experience cognitive dissonance?</p>
+                        <div class="space-y-2">
+                            <button onclick="selectListeningAnswer(this, true)" class="option-btn w-full p-3 rounded-lg text-left text-sm">A. They feel psychological discomfort and are motivated to reduce it</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">B. They immediately change their behavior to match their beliefs</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">C. They seek out more information that contradicts their beliefs</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">D. They become more confident in their original beliefs</button>
+                        </div>
+                    </div>
+
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#0066cc]/20">
+                        <p class="font-semibold mb-3 text-[#00ccff]"><span class="text-[#dc143c] mr-2">8.</span>The professor discusses the Festinger and Carlsmith experiment. What does this experiment demonstrate?</p>
+                        <div class="space-y-2">
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">A. People will not change their attitudes for money</button>
+                            <button onclick="selectListeningAnswer(this, true)" class="option-btn w-full p-3 rounded-lg text-left text-sm">B. People who receive smaller rewards often change their attitudes more</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">C. Boring tasks cannot be made interesting through rationalization</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">D. People prefer consistency over comfort</button>
+                        </div>
+                    </div>
+
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#0066cc]/20">
+                        <p class="font-semibold mb-3 text-[#00ccff]"><span class="text-[#dc143c] mr-2">9.</span>What are two ways people can reduce cognitive dissonance? Choose 2 answers.</p>
+                        <div class="space-y-2">
+                            <label class="flex items-center p-3 bg-[#000d1a]/50 rounded-lg cursor-pointer hover:bg-[#0066cc]/10 transition">
+                                <input type="checkbox" class="mr-3 accent-[#00ccff] listening-check" value="correct">
+                                <span class="text-sm">A. Change their behavior to match their beliefs</span>
+                            </label>
+                            <label class="flex items-center p-3 bg-[#000d1a]/50 rounded-lg cursor-pointer hover:bg-[#0066cc]/10 transition">
+                                <input type="checkbox" class="mr-3 accent-[#00ccff] listening-check" value="correct">
+                                <span class="text-sm">B. Justify their behavior by changing their beliefs</span>
+                            </label>
+                            <label class="flex items-center p-3 bg-[#000d1a]/50 rounded-lg cursor-pointer hover:bg-[#0066cc]/10 transition">
+                                <input type="checkbox" class="mr-3 accent-[#00ccff] listening-check">
+                                <span class="text-sm">C. Ignore the conflicting information completely</span>
+                            </label>
+                            <label class="flex items-center p-3 bg-[#000d1a]/50 rounded-lg cursor-pointer hover:bg-[#0066cc]/10 transition">
+                                <input type="checkbox" class="mr-3 accent-[#00ccff] listening-check">
+                                <span class="text-sm">D. Seek out others who share the conflicting belief</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between mt-6">
+                        <button onclick="prevListening()" class="px-6 py-2 bg-[#001a33] border border-[#0066cc]/30 rounded-lg hover:bg-[#0066cc]/20 transition text-sm">Previous</button>
+                        <button onclick="nextListening()" class="px-6 py-2 btn-primary rounded-lg font-bold text-sm">Next: Lecture 2</button>
+                    </div>
+                </div>
+
+                <!-- Lecture 2 & 3 would follow similar pattern -->
+                <div class="glass-panel rounded-2xl p-6 mb-6 hidden" id="listening-lecture-2">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs bg-[#0066cc]/20 text-[#00ccff] px-3 py-1 rounded-full border border-[#0066cc]/30">Lecture 2 of 3</span>
+                        <span class="text-xs text-gray-400">Questions 12-17</span>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-[#0066cc]/20 to-[#00ccff]/20 p-6 rounded-xl mb-6 border border-[#0066cc]/30 text-center">
+                        <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-[#0066cc]/20 flex items-center justify-center border-2 border-[#00ccff]">
+                            <i class="fas fa-flask text-3xl text-[#00ccff]"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-white">Biology Lecture</h3>
+                        <p class="text-sm text-gray-300 mb-4">Photosynthesis and Cellular Respiration</p>
+                        <button onclick="playListeningAudio('lecture2')" id="btn-lecture2" class="btn-primary px-8 py-3 rounded-full font-bold flex items-center justify-center gap-2 mx-auto">
+                            <i class="fas fa-play" id="icon-lecture2"></i>
+                            <span id="text-lecture2">Play Lecture</span>
+                        </button>
+                        <div class="audio-wave hidden mt-4" id="wave-lecture2">
+                            <div class="wave-bar" style="animation-delay: 0s"></div>
+                            <div class="wave-bar" style="animation-delay: 0.1s"></div>
+                            <div class="wave-bar" style="animation-delay: 0.2s"></div>
+                            <div class="wave-bar" style="animation-delay: 0.3s"></div>
+                            <div class="wave-bar" style="animation-delay: 0.4s"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6 p-4 bg-[#001a33]/50 rounded-lg border border-[#0066cc]/20">
+                        <p class="font-semibold mb-3 text-[#00ccff]"><span class="text-[#dc143c] mr-2">12.</span>What is the main purpose of the lecture?</p>
+                        <div class="space-y-2">
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">A. To compare different types of plants</button>
+                            <button onclick="selectListeningAnswer(this, true)" class="option-btn w-full p-3 rounded-lg text-left text-sm">B. To explain the relationship between photosynthesis and cellular respiration</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">C. To describe the structure of plant cells</button>
+                            <button onclick="selectListeningAnswer(this, false)" class="option-btn w-full p-3 rounded-lg text-left text-sm">D. To discuss the history of biological research</button>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between mt-6">
+                        <button onclick="prevListening()" class="px-6 py-2 bg-[#001a33] border border-[#0066cc]/30 rounded-lg hover:bg-[#0066cc]/20 transition text-sm">Previous</button>
+                        <button onclick="finishListening()" class="px-6 py-2 btn-danger rounded-lg font-bold text-sm">Finish Section</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SPEAKING SECTION -->
+            <div id="speaking-section" class="section-content hidden-section">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h2 class="title-font text-2xl font-bold text-[#00ccff]">Speaking Section</h2>
+                        <p class="text-xs text-gray-400">Time: 17 minutes • 4 Tasks</p>
+                    </div>
+                    <div class="timer text-2xl" id="speaking-timer">17:00</div>
+                </div>
+
+                <!-- Task 1: Independent Speaking -->
+                <div class="glass-panel rounded-2xl p-6 mb-6" id="speaking-task-1">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs bg-[#00ccff]/20 text-[#00ccff] px-3 py-1 rounded-full border border-[#00ccff]/30">Task 1: Independent</span>
+                        <span class="text-xs text-gray-400">Preparation: 15s | Response: 45s</span>
+                    </div>
+
+                    <div class="bg-[#000d1a]/50 p-6 rounded-lg mb-6 border border-[#00ccff]/20">
+                        <h3 class="font-bold text-lg mb-4 text-[#00ccff]">Question:</h3>
+                        <p class="text-lg leading-relaxed">
+                            Some people prefer to study for exams in the morning, while others prefer to study at night. Which do you prefer and why? Use specific reasons and examples to support your answer.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-[#001a33]/50 p-4 rounded-lg border border-[#0066cc]/20">
+                            <h4 class="font-bold text-sm mb-2 text-[#00ccff]">Preparation Time</h4>
+                            <div class="timer text-3xl text-center" id="prep-timer-1">00:15</div>
+                        </div>
+                        <div class="bg-[#001a33]/50 p-4 rounded-lg border border-[#dc143c]/20">
+                            <h4 class="font-bold text-sm mb-2 text-[#ff1a1a]">Response Time</h4>
+                            <div class="timer text-3xl text-center text-[#ff1a1a]" id="resp-timer-1">00:45</div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center gap-4 mb-6">
+                        <button onclick="startPreparation(1)" id="btn-prep-1" class="btn-primary px-6 py-3 rounded-full font-bold flex items-center gap-2">
+                            <i class="fas fa-hourglass-start"></i> Start Preparation
+                        </button>
+                        <button onclick="toggleRecording('task1')" id="btn-record-task1" class="btn-record px-8 py-3 rounded-full font-bold flex items-center gap-2 hidden">
+                            <i class="fas fa-microphone" id="icon-record-task1"></i> Record Response
+                        </button>
+                    </div>
+
+                    <div id="status-task1" class="text-center hidden">
+                        <div class="audio-wave justify-center mb-2">
+                            <div class="wave-bar" style="animation-delay: 0s"></div>
+                            <div class="wave-bar" style="animation-delay: 0.1s"></div>
+                            <div class="wave-bar" style="animation-delay: 0.2s"></div>
+                            <div class="wave-bar" style="animation-delay: 0.3s"></div>
+                            <div class="wave-bar" style="animation-delay: 0.4s"></div>
+                        </div>
+                        <p class="text-[#ff1a1a] font-bold">Recording... <span id="timer-record-task1">45</span>s</p>
+                    </div>
+
+                    <div class="flex justify-end mt-6">
+                        <button onclick="nextSpeakingTask()" class="px-6 py-2 btn-primary rounded-lg font-bold text-sm">Next Task</button>
+                    </div>
+                </div>
+
+                <!-- Task 2: Read, Listen, Speak -->
+                <div class="glass-panel rounded-2xl p-6 mb-6 hidden" id="speaking-task-2">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs bg-[#dc143c]/20 text-[#ff1a1a] px-3 py-1 rounded-full border border-[#dc143c]/30">Task 2: Read, Listen, Speak</span>
+                        <span class="text-xs text-gray-400">Reading: 45s | Listening | Prep: 30s | Response: 60s</span>
+                    </div>
+
+                    <div class="bg-[#000d1a]/50 p-4 rounded-lg mb-4 border border-[#0066cc]/20 max-h-32 overflow-y-auto">
+                        <h4 class="font-bold text-sm mb-2 text-[#00ccff]">Reading Passage:</h4>
+                        <p class="text-sm">
+                            The university has announced a new policy regarding campus housing. Starting next semester, all first-year students will be required to live in dormitories on campus. The administration believes this will help students adjust to college life and improve academic performance. Additionally, the policy aims to build a stronger sense of community among new students.
+                        </p>
+                    </div>
+
+                    <button onclick="playSpeakingAudio('task2')" id="btn-audio-task2" class="w-full py-3 btn-danger rounded-lg mb-4 flex items-center justify-center gap-2 font-bold">
+                        <i class="fas fa-headphones"></i> Play Conversation
+                    </button>
+
+                    <div class="bg-[#000d1a]/50 p-4 rounded-lg mb-6 border border-[#dc143c]/20">
+                        <h3 class="font-bold text-lg mb-4 text-[#ff1a1a]">Question:</h3>
+                        <p class="text-lg leading-relaxed">
+                            The woman expresses her opinion about the university's new housing policy. State her opinion and explain the reasons she gives for holding that opinion.
+                        </p>
+                    </div>
+
+                    <div class="flex justify-center gap-4 mb-6">
+                        <button onclick="startPreparation(2)" id="btn-prep-2" class="btn-primary px-6 py-3 rounded-full font-bold flex items-center gap-2">
+                            <i class="fas fa-hourglass-start"></i> Start Prep (30s)
+                        </button>
+                        <button onclick="toggleRecording('task2')" id="btn-record-task2" class="btn-record px-8 py-3 rounded-full font-bold flex items-center gap-2 hidden">
+                            <i class="fas fa-microphone" id="icon-record-task2"></i> Record (60s)
+                        </button>
+                    </div>
+
+                    <div class="flex justify-between mt-6">
+                        <button onclick="prevSpeakingTask()" class="px-6 py-2 bg-[#001a33] border border-[#0066cc]/30 rounded-lg hover:bg-[#0066cc]/20 transition text-sm">Previous</button>
+                        <button onclick="nextSpeakingTask()" class="px-6 py-2 btn-danger rounded-lg font-bold text-sm">Next Task</button>
+                    </div>
+                </div>
+
+                <!-- Task 3: Listen, Speak -->
+                <div class="glass-panel rounded-2xl p-6 mb-6 hidden" id="speaking-task-3">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs bg-[#00ccff]/20 text-[#00ccff] px-3 py-1 rounded-full border border-[#00ccff]/30">Task 3: Listen, Speak</span>
+                        <span class="text-xs text-gray-400">Listening | Prep: 20s | Response: 60s</span>
+                    </div>
+
+                    <button onclick="playSpeakingAudio('task3')" id="btn-audio-task3" class="w-full py-3 btn-primary rounded-lg mb-4 flex items-center justify-center gap-2 font-bold">
+                        <i class="fas fa-headphones"></i> Play Lecture
+                    </button>
+
+                    <div class="bg-[#000d1a]/50 p-4 rounded-lg mb-6 border border-[#00ccff]/20">
+                        <h3 class="font-bold text-lg mb-4 text-[#00ccff]">Question:</h3>
+                        <p class="text-lg leading-relaxed">
+                            Using points and examples from the lecture, explain the two types of motivation discussed by the professor.
+                        </p>
+                    </div>
+
+                    <div class="flex justify-center gap-4 mb-6">
+                        <button onclick="startPreparation(3)" id="btn-prep-3" class="btn-primary px-6 py-3 rounded-full font-bold flex items-center gap-2">
+                            <i class="fas fa-hourglass-start"></i> Start Prep (20s)
+                        </button>
+                        <button onclick="toggleRecording('task3')" id="btn-record-task3" class="btn-record px-8 py-3 rounded-full font-bold flex items-center gap-2 hidden">
+                            <i class="fas fa-microphone" id="icon-record-task3"></i> Record (60s)
+                        </button>
+                    </div>
+
+                    <div class="flex justify-between mt-6">
+                        <button onclick="prevSpeakingTask()" class="px-6 py-2 bg-[#001a33] border border-[#0066cc]/30 rounded-lg hover:bg-[#0066cc]/20 transition text-sm">Previous</button>
+                        <button onclick="nextSpeakingTask()" class="px-6 py-2 btn-primary rounded-lg font-bold text-sm">Next Task</button>
+                    </div>
+                </div>
+
+                <!-- Task 4: Listen, Speak (Academic) -->
+                <div class="glass-panel rounded-2xl p-6 hidden" id="speaking-task-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs bg-[#dc143c]/20 text-[#ff1a1a] px-3 py-1 rounded-full border border-[#dc143c]/30">Task 4: Listen, Speak</span>
+                        <span class="text-xs text-gray-400">Listening | Prep: 20s | Response: 60s</span>
+                    </div>
+
+                    <button onclick="playSpeakingAudio('task4')" id="btn-audio-task4" class="w-full py-3 btn-danger rounded-lg mb-4 flex items-center justify-center gap-2 font-bold">
+                        <i class="fas fa-headphones"></i> Play Lecture
+                    </button>
+
+                    <div class="bg-[#000d1a]/50 p-4 rounded-lg mb-6 border border-[#dc143c]/20">
+                        <h3 class="font-bold text-lg mb-4 text-[#ff1a1a]">Question:</h3>
+                        <p class="text-lg leading-relaxed">
+                            Explain how the example of the honeybee illustrates the concept of swarm intelligence described in the lecture.
+                        </p>
+                    </div>
+
+                    <div class="flex justify-center gap-4 mb-6">
+                        <button onclick="startPreparation(4)" id="btn-prep-4" class="btn-primary px-6 py-3 rounded-full font-bold flex items-center gap-2">
+                            <i class="fas fa-hourglass-start"></i> Start Prep (20s)
+                        </button>
+                        <button onclick="toggleRecording('task4')" id="btn-record-task4" class="btn-record px-8 py-3 rounded-full font-bold flex items-center gap-2 hidden">
+                            <i class="fas fa-microphone" id="icon-record-task4"></i> Record (60s)
+                        </button>
+                    </div>
+
+                    <div class="flex justify-between mt-6">
+                        <button onclick="prevSpeakingTask()" class="px-6 py-2 bg-[#001a33] border border-[#0066cc]/30 rounded-lg hover:bg-[#0066cc]/20 transition text-sm">Previous</button>
+                        <button onclick="finishSpeaking()" class="px-6 py-2 btn-danger rounded-lg font-bold text-sm">Finish Section</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WRITING SECTION -->
+            <div id="writing-section" class="section-content hidden-section">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h2 class="title-font text-2xl font-bold text-[#dc143c]">Writing Section</h2>
+                        <p class="text-xs text-gray-400">Time: 50 minutes • 2 Tasks</p>
+                    </div>
+                    <div class="timer text-2xl" id="writing-timer">50:00</div>
+                </div>
+
+                <!-- Integrated Writing -->
+                <div class="glass-panel rounded-2xl p-6 mb-6" id="writing-task-1">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs bg-[#dc143c]/20 text-[#ff1a1a] px-3 py-1 rounded-full border border-[#dc143c]/30">Task 1: Integrated Writing</span>
+                        <span class="text-xs text-gray-400">Reading: 3 min | Listening | Writing: 20 min</span>
+                    </div>
+
+                    <div class="bg-[#000d1a]/50 p-4 rounded-lg mb-4 border border-[#0066cc]/20 max-h-48 overflow-y-auto">
+                        <h4 class="font-bold text-sm mb-2 text-[#00ccff]">Reading Passage:</h4>
+                        <p class="text-sm leading-relaxed mb-3">
+                            The sea otter population along the coast of California has been declining rapidly in recent years. Three possible causes have been proposed to explain this decline.
+                        </p>
+                        <p class="text-sm leading-relaxed mb-3">
+                            First, environmental pollution could be responsible. Chemical pollutants in the water might be weakening the otters' immune systems, making them more susceptible to infections.
+                        </p>
+                        <p class="text-sm leading-relaxed mb-3">
+                            Second, increased predation by sharks could be a factor. As shark populations recover from overfishing, they may be preying more heavily on sea otters.
+                        </p>
+                        <p class="text-sm leading-relaxed">
+                            Third, competition for food with other marine mammals might be limiting the otters' food supply. Growing populations of seals and sea lions could be depleting the fish and shellfish that otters depend on.
+                        </p>
+                    </div>
+
+                    <button onclick="playWritingAudio()" id="btn-writing-audio" class="w-full py-3 btn-primary rounded-lg mb-4 flex items-center justify-center gap-2 font-bold">
+                        <i class="fas fa-headphones"></i> Play Lecture
+                    </button>
+
+                    <div class="bg-[#000d1a]/50 p-4 rounded-lg mb-6 border border-[#dc143c]/20">
+                        <h3 class="font-bold text-lg mb-4 text-[#ff1a1a]">Writing Task:</h3>
+                        <p class="text-sm leading-relaxed">
+                            Summarize the points made in the lecture, being sure to explain how they cast doubt on specific points made in the reading passage.
+                        </p>
+                    </div>
+
+                    <textarea id="integrated-writing" class="w-full bg-[#001a33]/50 border border-[#0066cc]/30 rounded-lg p-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00ccff]" rows="10" placeholder="Write your essay here (150-225 words)..."></textarea>
+                    
+                    <div class="flex justify-between mt-4 text-xs text-gray-400">
+                        <span id="integrated-word-count">0 words</span>
+                        <span>Target: 150-225 words</span>
+                    </div>
+
+                    <div class="flex justify-end mt-6">
+                        <button onclick="nextWritingTask()" class="px-6 py-2 btn-danger rounded-lg font-bold text-sm">Next Task</button>
+                    </div>
+                </div>
+
+                <!-- Independent Writing -->
+                <div class="glass-panel rounded-2xl p-6 hidden" id="writing-task-2">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs bg-[#00ccff]/20 text-[#00ccff] px-3 py-1 rounded-full border border-[#00ccff]/30">Task 2: Independent Writing</span>
+                        <span class="text-xs text-gray-400">Writing: 30 minutes</span>
+                    </div>
+
+                    <div class="bg-[#000d1a]/50 p-6 rounded-lg mb-6 border border-[#00ccff]/20">
+                        <h3 class="font-bold text-lg mb-4 text-[#00ccff]">Writing Prompt:</h3>
+                        <p class="text-lg leading-relaxed">
+                            Do you agree or disagree with the following statement?
+                        </p>
+                        <p class="text-xl font-bold my-4 text-white text-center">
+                            "It is better to work in a team than to work alone."
+                        </p>
+                        <p class="text-sm text-gray-300">
+                            Use specific reasons and examples to support your answer.
+                        </p>
+                    </div>
+
+                    <textarea id="independent-writing" class="w-full bg-[#001a33]/50 border border-[#00ccff]/30 rounded-lg p-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00ccff]" rows="12" placeholder="Write your essay here (300+ words)..."></textarea>
+                    
+                    <div class="flex justify-between mt-4 text-xs text-gray-400">
+                        <span id="independent-word-count">0 words</span>
+                        <span>Target: 300+ words</span>
+                    </div>
+
+                    <div class="flex justify-between mt-6">
+                        <button onclick="prevWritingTask()" class="px-6 py-2 bg-[#001a33] border border-[#0066cc]/30 rounded-lg hover:bg-[#0066cc]/20 transition text-sm">Previous</button>
+                        <button onclick="finishWriting()" class="px-6 py-2 btn-danger rounded-lg font-bold text-sm">Submit Essays</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="absolute bottom-0 left-0 right-0 bg-[#000d1a]/90 border-t border-[#0066cc]/20 p-3 flex justify-between items-center text-xs">
+            <span class="text-gray-400">SALVO GROUP © 2024</span>
+            <div class="flex gap-3">
+                <span class="flex items-center gap-1 text-[#00ccff]"><i class="fas fa-wifi"></i> Connected</span>
+                <span class="flex items-center gap-1 text-[#dc143c]"><i class="fas fa-battery-full"></i> 100%</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Audio Content for TOEFL
+        const toeflAudio = {
+            conv1: "Hi Professor Johnson. Do you have a few minutes to talk about my research paper? Of course, come in. What can I help you with? Well, I'm writing about the environmental history of this region, specifically looking at how industrial development affected local ecosystems between 1850 and 1950. That's certainly an ambitious topic for an undergraduate paper. What specific aspect are you focusing on? I'm particularly interested in how the textile mills impacted the river systems. I've found some interesting data, but I'm having trouble locating primary sources from the actual mill owners. Have you checked the university archives? They have a collection of business records from that period. I didn't know about that! Would I need special permission to access them? Not for most of the collection. You should also talk to Dr. Martinez in the History Department. She's written extensively on industrial development in this region and might have some suggestions for additional sources. That's very helpful. Do you think my timeline is manageable? It might be too broad. Consider focusing on just one river system or a shorter time period. Quality is better than quantity at this stage. You're right. I'll narrow it down to the Merrimack River between 1880 and 1920. That sounds much more focused. And don't forget to make an appointment with the archivist before you visit. They can help you find relevant materials more efficiently. I'll do that today. Thank you so much for your help, Professor.",
+            
+            lecture1: "Today we're going to discuss cognitive dissonance theory, which was first proposed by Leon Festinger in 1957. Cognitive dissonance refers to the mental discomfort that occurs when a person holds two or more contradictory beliefs, or when their beliefs conflict with their behavior. This discomfort motivates people to reduce the dissonance and achieve consistency. Let me give you an example. Imagine someone who knows that smoking causes cancer but continues to smoke. This creates cognitive dissonance. To reduce this discomfort, they might either quit smoking—that's changing the behavior—or they might convince themselves that the research is flawed, or that the benefits of smoking, like stress relief, outweigh the risks. That's changing the belief. Festinger and his colleague James Carlsmith conducted a famous experiment in 1959. Participants performed a boring task for an hour. Afterward, some were paid $1 to tell the next participant that the task was interesting and enjoyable, while others were paid $20 to do the same. Later, when asked how much they actually enjoyed the task, those who were paid $1 rated it as more enjoyable than those paid $20. Why? Because $1 wasn't enough to justify lying, so they reduced their dissonance by actually changing their attitude about the task. Those paid $20 had sufficient external justification—the money—so they didn't need to change their internal beliefs. This has important implications for understanding how people form and change attitudes, and why sometimes smaller incentives can be more effective than larger ones in producing lasting attitude change.",
+            
+            lecture2: "Today I want to talk about the relationship between photosynthesis and cellular respiration. These two processes are essentially opposite reactions that together form a cycle of energy transformation in living organisms. Photosynthesis occurs in plants, algae, and some bacteria. In this process, light energy is captured and converted into chemical energy stored in glucose molecules. The basic equation shows that carbon dioxide and water, using light energy, produce glucose and oxygen. This takes place primarily in the chloroplasts of plant cells. Cellular respiration, on the other hand, occurs in the mitochondria of virtually all eukaryotic cells. This process breaks down glucose to release energy that the cell can use. The equation is essentially the reverse of photosynthesis: glucose and oxygen produce carbon dioxide, water, and ATP—that's adenosine triphosphate, the energy currency of the cell. What's fascinating is how these two processes complement each other. The oxygen produced by photosynthesis is used in cellular respiration, while the carbon dioxide produced by cellular respiration is used in photosynthesis. This creates a balance in ecosystems. Plants produce food and oxygen that animals need, and animals produce carbon dioxide that plants need. Without photosynthesis, there would be no oxygen in the atmosphere and no food for most organisms. Without cellular respiration, organisms couldn't access the energy stored in glucose. Together, these processes drive the flow of energy through ecosystems.",
+            
+            task2: "Have you heard about the new housing policy? Yeah, I just read the announcement. I think it's a terrible idea. Really? Why? Well, they say it will help students adjust to college life, but I think it will actually make things harder for many people. How so? Think about students who have family obligations or need to work part-time jobs. Living on campus is expensive, and the meal plans are required. Some students save money by living at home or sharing apartments off-campus. This policy takes away that option. That's a good point. What about the community building aspect? I think there are better ways to build community than forcing everyone to live in dorms. What about students who are older or have different lifestyles? They might not fit in with traditional dorm life. The policy seems to assume all first-year students are the same. You're right. It doesn't account for individual circumstances. Exactly. And what about students who went to boarding school? They've already had the dorm experience. Or international students who might want to live with relatives in the area? The policy is too rigid. I hope the administration reconsiders.",
+            
+            task3: "Today we're discussing motivation in psychology. Specifically, I want to distinguish between intrinsic and extrinsic motivation. Intrinsic motivation refers to behavior that is driven by internal rewards. In other words, the motivation to engage in a behavior arises from within the individual because it is naturally satisfying to you. For example, if you play a musical instrument because you enjoy making music, that's intrinsic motivation. Extrinsic motivation, conversely, involves engaging in a behavior to earn external rewards or avoid punishment. If you practice an instrument to win a competition or because your parents make you, that's extrinsic motivation. Research shows that while both types can be effective, intrinsic motivation often leads to better long-term outcomes. When people are intrinsically motivated, they tend to be more creative, persistent, and enjoy the activity more. However, extrinsic rewards can sometimes undermine intrinsic motivation. This is called the overjustification effect. If someone already enjoys an activity and you start paying them for it, they may begin to view the activity as work rather than fun, decreasing their intrinsic interest. The key for educators and managers is to find the right balance—using extrinsic motivators when necessary while fostering intrinsic motivation through autonomy, mastery, and purpose.",
+            
+            task4: "Today I want to introduce the concept of swarm intelligence. Swarm intelligence refers to the collective behavior of decentralized, self-organized systems, whether natural or artificial. The classic example in nature is the behavior of honeybees when searching for a new nest site. When a honeybee colony outgrows its current hive, scout bees fly out to search for potential new homes. Each scout bee independently evaluates potential sites and returns to the swarm to perform a waggle dance. The intensity of the dance indicates how good the site is. Other bees watch these dances and may go check out the sites themselves. Over time, through this process of positive feedback, the swarm reaches a consensus and moves to the best location. What's remarkable is that no single bee makes the decision. The intelligence emerges from the interactions of many individuals following simple rules. This is different from having a queen bee or leader making the choice. Each bee has limited information and processing ability, yet together they solve a complex problem. Computer scientists have applied these principles to create algorithms for optimization problems. For example, delivery companies use swarm intelligence algorithms to determine the most efficient routes for their trucks, similar to how bees find the best nest sites. The key insight is that complex, intelligent behavior can emerge from simple interactions without central control.",
+            
+            writing: "The decline of sea otters along the California coast has generated considerable concern among marine biologists, and while the reading passage suggests three possible causes, the lecturer argues that these explanations are not supported by the evidence. First, regarding pollution, the lecturer points out that if chemical pollutants were weakening the otters' immune systems, we would expect to find dead otters washed up on shore showing signs of infection. However, dead otters are rarely found on beaches, which contradicts the pollution hypothesis. The absence of carcasses suggests that the otters are being removed by predators rather than dying from disease. Second, the shark predation theory is also problematic according to the lecturer. While it is true that shark populations have increased, the lecturer notes that sharks typically attack from below, biting the midsection or flippers of their prey. However, the otters that have been found injured show bite marks on their heads and necks, which is not consistent with shark attacks. This pattern of injury suggests a different predator is responsible. Finally, the food competition hypothesis fails to explain why the otter decline is so severe and localized. If competition with seals and sea lions were the cause, we would expect a more gradual decline across the entire range. Instead, the decline is concentrated in specific areas and happening rapidly. The lecturer suggests that the true cause might be killer whale predation, as killer whales do attack from above and could account for the specific injury patterns and the rapid decline in localized areas."
+        };
+
+        // State Management
+        let currentState = {
+            section: 'menu',
+            reading: 1,
+            listening: 1,
+            speaking: 1,
+            writing: 1,
+            recording: false,
+            mediaRecorder: null,
+            audioChunks: [],
+            timers: {}
+        };
+
+        let scores = {
+            reading: 0,
+            listening: 0,
+            speaking: 0,
+            writing: 0,
+            total: 0
+        };
+
+        // Navigation
+        function showSection(section) {
+            document.querySelectorAll('.section-content').forEach(el => {
+                el.classList.add('hidden-section');
+            });
+            
+            const target = document.getElementById(section + '-section');
+            if (target) {
+                target.classList.remove('hidden-section');
+                target.classList.add('fade-in');
+                currentState.section = section;
+            }
+            
+            // Update nav styling
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('tab-active', 'text-[#00ccff]');
+                btn.classList.add('text-gray-400');
+            });
+            
+            const activeBtn = event?.target?.closest('button');
+            if (activeBtn) {
+                activeBtn.classList.remove('text-gray-400');
+                activeBtn.classList.add('tab-active');
+            }
+        }
+
+        function startTest(section) {
+            showSection(section);
+            if (section === 'reading') startReadingTimer();
+            else if (section === 'listening') startListeningTimer();
+            else if (section === 'speaking') startSpeakingTimer();
+            else if (section === 'writing') startWritingTimer();
+        }
+
+        function startFullTest() {
+            showNotification('Full Test Mode Started! Good luck!');
+            startTest('reading');
+        }
+
+        // Reading Functions
+        function startReadingTimer() {
+            let minutes = 54;
+            let seconds = 0;
+            updateTimer('reading-timer', minutes, seconds);
+            
+            currentState.timers.reading = setInterval(() => {
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        clearInterval(currentState.timers.reading);
+                        return;
+                    }
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    seconds--;
+                }
+                updateTimer('reading-timer', minutes, seconds);
+            }, 1000);
+        }
+
+        function updateTimer(id, minutes, seconds) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+        }
+
+        function selectReadingAnswer(btn, isCorrect) {
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.option-btn').forEach(b => {
+                b.disabled = true;
+                b.classList.remove('selected', 'correct', 'wrong');
+            });
+            
+            btn.classList.add('selected');
+            setTimeout(() => {
+                btn.classList.add(isCorrect ? 'correct' : 'wrong');
+                if (isCorrect) {
+                    scores.reading += 1;
+                    updateScores();
+                }
+            }, 200);
+        }
+
+        function selectInsertText(btn, isCorrect) {
+            btn.classList.add(isCorrect ? 'correct' : 'wrong');
+            btn.parentElement.querySelectorAll('button').forEach(b => b.disabled = true);
+        }
+
+        function nextReading() {
+            document.getElementById('reading-passage-1').classList.add('hidden');
+            document.getElementById('reading-passage-2').classList.remove('hidden');
+        }
+
+        function prevReading() {
+            // Implementation for previous
+        }
+
+        function finishReading() {
+            scores.reading = Math.min(30, scores.reading + 10);
+            updateScores();
+            showNotification('Reading Section Complete!');
+            setTimeout(() => startTest('listening'), 2000);
+        }
+
+        // Listening Functions
+        function startListeningTimer() {
+            let minutes = 41;
+            let seconds = 0;
+            updateTimer('listening-timer', minutes, seconds);
+            
+            currentState.timers.listening = setInterval(() => {
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        clearInterval(currentState.timers.listening);
+                        return;
+                    }
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    seconds--;
+                }
+                updateTimer('listening-timer', minutes, seconds);
+            }, 1000);
+        }
+
+        function playListeningAudio(id) {
+            const content = toeflAudio[id];
+            if (!content) return;
+            
+            const btn = document.getElementById('btn-' + id);
+            const icon = document.getElementById('icon-' + id);
+            const text = document.getElementById('text-' + id);
+            const wave = document.getElementById('wave-' + id);
+            
+            if (window.speechSynthesis.speaking) {
+                window.speechSynthesis.cancel();
+                resetListeningUI(btn, icon, text, wave);
+                return;
+            }
+            
+            const utterance = new SpeechSynthesisUtterance(content);
+            utterance.rate = 0.9;
+            utterance.pitch = 1;
+            utterance.lang = 'en-US';
+            
+            utterance.onstart = () => {
+                icon.className = 'fas fa-stop';
+                text.textContent = 'Playing...';
+                btn.classList.add('opacity-75');
+                wave.classList.remove('hidden');
+            };
+            
+            utterance.onend = () => {
+                resetListeningUI(btn, icon, text, wave);
+            };
+            
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function resetListeningUI(btn, icon, text, wave) {
+            icon.className = 'fas fa-play';
+            text.textContent = text.id === 'text-conv1' ? 'Play Conversation' : 'Play Lecture';
+            btn.classList.remove('opacity-75');
+            wave.classList.add('hidden');
+        }
+
+        function selectListeningAnswer(btn, isCorrect) {
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.option-btn').forEach(b => {
+                b.disabled = true;
+                b.classList.remove('selected', 'correct', 'wrong');
+            });
+            
+            btn.classList.add('selected');
+            setTimeout(() => {
+                btn.classList.add(isCorrect ? 'correct' : 'wrong');
+                if (isCorrect) {
+                    scores.listening += 1;
+                    updateScores();
+                }
+            }, 200);
+        }
+
+        function nextListening() {
+            document.getElementById('listening-conv-1').classList.add('hidden');
+            document.getElementById('listening-lecture-1').classList.remove('hidden');
+        }
+
+        function prevListening() {
+            // Implementation
+        }
+
+        function finishListening() {
+            scores.listening = Math.min(28, scores.listening + 5);
+            updateScores();
+            showNotification('Listening Section Complete!');
+            setTimeout(() => startTest('speaking'), 2000);
+        }
+
+        // Speaking Functions
+        function startSpeakingTimer() {
+            let minutes = 17;
+            let seconds = 0;
+            updateTimer('speaking-timer', minutes, seconds);
+        }
+
+        function startPreparation(taskNum) {
+            document.getElementById('btn-prep-' + taskNum).classList.add('hidden');
+            document.getElementById('btn-record-task' + taskNum).classList.remove('hidden');
+            
+            let seconds = taskNum === 1 ? 15 : (taskNum === 2 ? 30 : 20);
+            const timerEl = document.getElementById('prep-timer-' + taskNum);
+            
+            const interval = setInterval(() => {
+                seconds--;
+                if (timerEl) timerEl.textContent = `00:${seconds.toString().padStart(2, '0')}`;
+                
+                if (seconds <= 0) {
+                    clearInterval(interval);
+                    // Auto start recording
+                    toggleRecording('task' + taskNum);
+                }
+            }, 1000);
+        }
+
+        function toggleRecording(taskId) {
+            if (currentState.recording) {
+                stopRecording(taskId);
+            } else {
+                startRecording(taskId);
+            }
+        }
+
+        async function startRecording(taskId) {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                currentState.mediaRecorder = new MediaRecorder(stream);
+                currentState.audioChunks = [];
+                
+                currentState.mediaRecorder.ondataavailable = (e) => {
+                    if (e.data.size > 0) currentState.audioChunks.push(e.data);
+                };
+                
+                currentState.mediaRecorder.onstop = () => {
+                    stream.getTracks().forEach(track => track.stop());
+                    showNotification('Recording saved!');
+                };
+                
+                currentState.mediaRecorder.start();
+                currentState.recording = true;
+                
+                // Update UI
+                const btn = document.getElementById('btn-record-' + taskId);
+                const icon = document.getElementById('icon-record-' + taskId);
+                const status = document.getElementById('status-' + taskId);
+                
+                btn.classList.add('recording-active');
+                icon.className = 'fas fa-stop';
+                status.classList.remove('hidden');
+                
+                // Timer
+                let seconds = taskId === 'task1' ? 45 : 60;
+                const timerEl = document.getElementById('timer-record-' + taskId);
+                
+                currentState.timers.recording = setInterval(() => {
+                    seconds--;
+                    if (timerEl) timerEl.textContent = seconds;
+                    
+                    if (seconds <= 0) {
+                        stopRecording(taskId);
+                    }
+                }, 1000);
+                
+            } catch (err) {
+                alert('Please allow microphone access.');
+            }
+        }
+
+        function stopRecording(taskId) {
+            if (currentState.mediaRecorder?.state === 'recording') {
+                currentState.mediaRecorder.stop();
+            }
+            
+            clearInterval(currentState.timers.recording);
+            currentState.recording = false;
+            
+            const btn = document.getElementById('btn-record-' + taskId);
+            const icon = document.getElementById('icon-record-' + taskId);
+            const status = document.getElementById('status-' + taskId);
+            
+            btn.classList.remove('recording-active');
+            icon.className = 'fas fa-microphone';
+            status.classList.add('hidden');
+        }
+
+        function playSpeakingAudio(taskId) {
+            const content = toeflAudio[taskId];
+            if (!content) return;
+            
+            const btn = document.getElementById('btn-audio-' + taskId);
+            const isPlaying = btn.querySelector('i').classList.contains('fa-stop');
+            
+            if (isPlaying) {
+                window.speechSynthesis.cancel();
+                btn.querySelector('i').className = 'fas fa-headphones';
+                btn.querySelector('span').textContent = taskId === 'task2' ? 'Play Conversation' : 'Play Lecture';
+                return;
+            }
+            
+            const utterance = new SpeechSynthesisUtterance(content);
+            utterance.rate = 0.9;
+            utterance.lang = 'en-US';
+            
+            utterance.onstart = () => {
+                btn.querySelector('i').className = 'fas fa-stop';
+                btn.querySelector('span').textContent = 'Playing...';
+            };
+            
+            utterance.onend = () => {
+                btn.querySelector('i').className = 'fas fa-headphones';
+                btn.querySelector('span').textContent = taskId === 'task2' ? 'Play Conversation' : 'Play Lecture';
+            };
+            
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function nextSpeakingTask() {
+            document.getElementById('speaking-task-' + currentState.speaking).classList.add('hidden');
+            currentState.speaking++;
+            document.getElementById('speaking-task-' + currentState.speaking).classList.remove('hidden');
+        }
+
+        function prevSpeakingTask() {
+            if (currentState.speaking > 1) {
+                document.getElementById('speaking-task-' + currentState.speaking).classList.add('hidden');
+                currentState.speaking--;
+                document.getElementById('speaking-task-' + currentState.speaking).classList.remove('hidden');
+            }
+        }
+
+        function finishSpeaking() {
+            scores.speaking = 24; // Simulated
+            updateScores();
+            showNotification('Speaking Section Complete!');
+            setTimeout(() => startTest('writing'), 2000);
+        }
+
+        // Writing Functions
+        function startWritingTimer() {
+            let minutes = 50;
+            let seconds = 0;
+            updateTimer('writing-timer', minutes, seconds);
+            
+            currentState.timers.writing = setInterval(() => {
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        clearInterval(currentState.timers.writing);
+                        return;
+                    }
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    seconds--;
+                }
+                updateTimer('writing-timer', minutes, seconds);
+            }, 1000);
+        }
+
+        function playWritingAudio() {
+            const content = toeflAudio.writing;
+            const btn = document.getElementById('btn-writing-audio');
+            const isPlaying = btn.querySelector('i').classList.contains('fa-stop');
+            
+            if (isPlaying) {
+                window.speechSynthesis.cancel();
+                btn.querySelector('i').className = 'fas fa-headphones';
+                return;
+            }
+            
+            const utterance = new SpeechSynthesisUtterance(content);
+            utterance.rate = 0.9;
+            utterance.lang = 'en-US';
+            
+            utterance.onstart = () => {
+                btn.querySelector('i').className = 'fas fa-stop';
+            };
+            
+            utterance.onend = () => {
+                btn.querySelector('i').className = 'fas fa-headphones';
+            };
+            
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Word counters
+        document.getElementById('integrated-writing')?.addEventListener('input', function() {
+            const count = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
+            document.getElementById('integrated-word-count').textContent = count + ' words';
+        });
+
+        document.getElementById('independent-writing')?.addEventListener('input', function() {
+            const count = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
+            document.getElementById('independent-word-count').textContent = count + ' words';
+        });
+
+        function nextWritingTask() {
+            document.getElementById('writing-task-1').classList.add('hidden');
+            document.getElementById('writing-task-2').classList.remove('hidden');
+        }
+
+        function prevWritingTask() {
+            document.getElementById('writing-task-2').classList.add('hidden');
+            document.getElementById('writing-task-1').classList.remove('hidden');
+        }
+
+        function finishWriting() {
+            scores.writing = 24; // Simulated
+            scores.total = scores.reading + scores.listening + scores.speaking + scores.writing;
+            updateScores();
+            showNotification('Test Complete! Check your scores!');
+            setTimeout(() => showSection('menu'), 3000);
+        }
+
+        // Utility Functions
+        function updateScores() {
+            document.getElementById('progress-reading').textContent = Math.round((scores.reading / 30) * 100) + '%';
+            document.getElementById('bar-reading').style.width = (scores.reading / 30) * 100 + '%';
+            
+            document.getElementById('progress-listening').textContent = Math.round((scores.listening / 28) * 100) + '%';
+            document.getElementById('bar-listening').style.width = (scores.listening / 28) * 100 + '%';
+            
+            document.getElementById('progress-speaking').textContent = Math.round((scores.speaking / 30) * 100) + '%';
+            document.getElementById('bar-speaking').style.width = (scores.speaking / 30) * 100 + '%';
+            
+            document.getElementById('progress-writing').textContent = Math.round((scores.writing / 30) * 100) + '%';
+            document.getElementById('bar-writing').style.width = (scores.writing / 30) * 100 + '%';
+            
+            document.getElementById('total-score').textContent = scores.total + '/120';
+            document.getElementById('bar-total').style.width = (scores.total / 120) * 100 + '%';
+        }
+
+        function showNotification(message) {
+            const notif = document.createElement('div');
+            notif.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#dc143c] to-[#0066cc] text-white px-8 py-4 rounded-full shadow-lg z-50 font-bold fade-in flex items-center gap-3';
+            notif.innerHTML = '<i class="fas fa-info-circle"></i>' + message;
+            document.body.appendChild(notif);
+            
+            setTimeout(() => {
+                notif.style.opacity = '0';
+                setTimeout(() => notif.remove(), 300);
+            }, 3000);
+        }
+
+        // Initialize
+        updateScores();
+    </script>
+</body>
+</html>
